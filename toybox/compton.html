@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#FF9900">
+    <meta name="viewport" content="width=device-width">  <!-- For Portable device -->
+    <title>Calculation of Compton edge</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script>
+      function calc(){
+      var egamma = document.getElementById("egamma").value;
+      var edge = egamma / (1.0+(1.0/(2.0*(egamma / 511.0))));
+      document.getElementById("result").textContent = "Compton Edge = " + edge + " keV.";
+      }
+    </script>
+  </head>
+
+  <body>
+    <h2>Calculation of Compton Edge</h2>
+    Energy of gamma ray (keV): <input id="egamma" /> <br/>
+    Calculation: <button onclick="calc()">Calculation</button>
+    <p id="result"></p>
+  </body>
+</html>
+
+  
