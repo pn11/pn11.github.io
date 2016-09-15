@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#FF9900">
+    <meta name="viewport" content="width=device-width">  <!-- For Portable device -->
+    <title>剱岳</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <!-- <script type="text/javascript" src="menu.js"></script> -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/2016-09-03T03_00_45Z.js"></script>
+    <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/getOptions.js"></script>
+    <script>google.charts.load("current", {packages:["map"]});</script>
+    <script type="text/javascript">
+      // API https://developers.google.com/chart/interactive/docs/gallery/map#adding-multiple-marker-sets
+      // Not lineWidth but lineWeight !! http://stackoverflow.com/questions/32446364/google-maps-polylines-not-displaying-at-all
+    </script>
+  </head>
+
+  <body>
+    <h1>剱岳 (2,999 m)</h1>
+    <ul>
+      <li/> 日時: 2016年9月3日(土)、9月4日(日)
+      <li/> 天気: 曇り/小雨
+      <li/> 参加者: 3人
+    </ul>
+    <div id=map></div>
+    <script>writeHTML();</script>
+    <p><a href="160903-Tsurugi-dake-day2.html">2日目へ</a></p>
+  </body>
+</html>
