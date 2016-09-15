@@ -11,11 +11,15 @@
     <script src="https://www.google.com/jsapi"></script>
     <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/2016-07-22T20_01_53Z.js"></script>
     <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/getOptions.js"></script>
-    <script>google.charts.load("current", {packages:["map"]});</script>
+    <script>google.charts.load("current", {packages:["map", "controls", "corechart"]});</script>
     <script type="text/javascript">
       // API https://developers.google.com/chart/interactive/docs/gallery/map#adding-multiple-marker-sets
       // Not lineWidth but lineWeight !! http://stackoverflow.com/questions/32446364/google-maps-polylines-not-displaying-at-all
     </script>
+    <!-- Graph for elevation etc -->
+    <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/getGraphOptions.js"></script>
+    <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/getControlOptions.js"></script>
+    <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/2016-07-22T20_01_53Z_graph.js"></script>
   </head>
 
   <body>
@@ -27,5 +31,7 @@
     </ul>
     <div id=map></div>
     <script>writeHTML();</script>
+    <div id=graph></div>
+    <script>writeHTMLGraph();</script>
   </body>
 </html>
