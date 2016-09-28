@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#FF9900">
+    <meta name="viewport" content="width=device-width">  <!-- For Portable device -->
+    <title>宮崎</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <!-- <script type="text/javascript" src="menu.js"></script> -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>google.charts.load("current", {packages:["map", "controls", "corechart"]});</script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/2016-09-21T07_53_00Z.js"></script>
+    <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/getOptions.js"></script>
+
+    <script type="text/javascript">
+      // API https://developers.google.com/chart/interactive/docs/gallery/map#adding-multiple-marker-sets
+      // Not lineWidth but lineWeight !! http://stackoverflow.com/questions/32446364/google-maps-polylines-not-displaying-at-all
+    </script>
+    <!-- Graph for elevation etc -->
+     <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/getGraphOptions.js"></script>
+    <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/getControlOptions.js"></script>
+    <script src="https://raw.githubusercontent.com/pn11/latlong/master/google/2016-09-21T07_53_00Z_graph.js"></script>
+
+  </head>
+
+  <body>
+    <h1>宮崎学会 その1</h1>
+    <p>宮崎大学 -> 木花駅 -> 宮崎駅</p>
+    <p>以下のグラフを見るには PC で開いてください。(要 Javascript)</p>
+    <div id=map></div>
+    <script>writeHTML();</script>
+    <div id=graph></div>
+    <script>writeHTMLGraph();</script>
+    <p><a href="160924-Miyazaki.html">その2へ</a></p>
+  </body>
+</html>
