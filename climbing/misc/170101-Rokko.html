@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#FF9900">
+    <meta name="viewport" content="width=device-width">  <!-- For Portable device -->
+    <title>六甲山初日の出</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <!-- <script type="text/javascript" src="menu.js"></script> -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>google.charts.load("current", {packages:["map", "controls", "corechart"]});</script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://rawgit.com/pn11/latlong/master/google/2016-12-31T20_57_26Z.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/pn11/latlong/master/google/getOptions.js"></script>
+
+    <script type="text/javascript">
+      // API https://developers.google.com/chart/interactive/docs/gallery/map#adding-multiple-marker-sets
+      // Not lineWidth but lineWeight !! http://stackoverflow.com/questions/32446364/google-maps-polylines-not-displaying-at-all
+    </script>
+    <!-- Graph for elevation etc -->
+     <script type="text/javascript" src="https://rawgit.com/pn11/latlong/master/google/getGraphOptions.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/pn11/latlong/master/google/getControlOptions.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/pn11/latlong/master/google/2016-12-31T20_57_26Z_graph.js"></script>
+
+  </head>
+
+  <body>
+    <h1>六甲山初日の出</h1>
+    <ul>
+      <li/> 日時: 2017年1月1日(日)
+      <li/> 天気: 晴れ
+      <li/> 自転車で山頂を目指したが出発の遅れと体調不良のため鉢巻展望台 (675 m) で引き返す。日の出には5分ほど間に合わず。
+    </ul>
+    <p>以下のグラフを見るには PC で開いてください。(要 Javascript, Chrome だと動かないかも。)</p>
+    <div id=map></div>
+    <script>writeHTML();</script>
+    <div id=graph></div>
+    <script>writeHTMLGraph();</script>
+  </body>
+</html>
