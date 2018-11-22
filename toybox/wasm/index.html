@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#FF9900">
+    <meta name="viewport" content="width=device-width"> <!-- For Portable device -->
+    <title>Fibonacci Calculator</title>
+    <script>
+        function fibonacci(num) {
+            var a = 1, b = 0, temp;
+            while (num >= 1) {
+                temp = a;
+                a = a + b;
+                b = temp;
+                num--;
+            }
+            return b;
+        }
+
+        function fibonacci_recursive(num) {
+            if (num <= 2) return 1;
+            return fibonacci(num - 1) + fibonacci(num - 2);
+        }
+
+        function calc_js() {
+            var index = document.getElementById("index").value;
+            var ans;
+            var recursive = document.getElementById("recursive_js").checked;
+            var startTime = new Date();
+            if (recursive) {
+                ans = fibonacci_recursive(index);
+            }
+            else {
+                ans = fibonacci(index);
+            }
+            var endTime = new Date();
+            document.getElementById("result_js").textContent = ans;
+            document.getElementById("time_js").textContent = endTime - startTime + " ms";
+        }
+    </script>
+    <script>
+        function calc_wasm() {
+            var index = document.getElementById("index").value;
+            var ans;
+            var recursive = document.getElementById("recursive_wasm").checked;
+            var startTime = new Date();
+            if (recursive) {
+                ans = Module.ccall('fibonacci_wasm_recursive', 'number', ['number'], [index]);
+            }
+            else {
+                ans = Module.ccall('fibonacci_wasm', 'number', ['number'], [index]);
+            }
+            var n = new Number(ans);
+            var endTime = new Date();
+            document.getElementById("result_wasm").textContent = ans;
+            document.getElementById("time_wasm").textContent = endTime - startTime + " ms";
+
+        }
+    </script>
+    <script async src="fibonacci_wasm.js"></script>
+</head>
+
+<body>
+    <h1>Fibonacci Calculator</h1>
+    <p>Index in Fibonacci Series: <input id="index" /> (Wasm ver. only valid for &lt;= 46.)</p>
+
+    <h2>JavaScript Version</h2>
+    <p><input type="checkbox" id="recursive_js" value="0" checked="checked">Recursive</p>
+    <button onclick="calc_js()">Calculate</button>
+    <p>Fibonacci Number: <span id="result_js"></span></p>
+    <p>Process time: <span id="time_js"></span></p>
+
+    <h2>WebAssembly (-O3) Version</h2>
+    <p><input type="checkbox" id="recursive_wasm" value="0" checked="checked">Recursive</p>
+    <p><button onclick="calc_wasm()">Calculate</button></p>
+    <p>Fibonacci Series: <span id="result_wasm"></span></p>
+    <p>Process time: <span id="time_wasm"></span></p>
+
+    <h2>Cross check</h2>
+    <ul>
+        <li><a href="https://keisan.casio.jp/exec/system/1161228773">フィボナッチ数 - 高精度計算サイト (カシオ)</a> </li>
+    </ul>
+    <h2>Reference</h2>
+    <ul>
+        <li><a href="https://medium.com/developers-writing/fibonacci-sequence-algorithm-in-javascript-b253dc7e320e">Fibonacci
+                sequence algorithm in Javascript – Developers Writing – Medium"</a> </li>
+    </ul>
+</body>
+
+</html>
