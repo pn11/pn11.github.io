@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Minimum Fullscreen Sample</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/4.0.0/screenfull.min.js"></script>
+</head>
+<body>
+    <p>Minimum fullscreen sample using <a href="https://sindresorhus.com/screenfull.js/">screenfull.js</a></p>
+    <section id="container">
+        <p>Try out the Fullscreen API</p>
+        <button id="request" onclick="screenfull.request(document.getElementById('container'));">Request Full Screen</button>
+        <button id="exit" onclick="screenfull.exit();">Exit Full Screen</button>
+    </section>
+    
+</body>
+</html>
