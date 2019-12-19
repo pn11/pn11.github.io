@@ -32,11 +32,13 @@
     <li>Push the button on the Hue Bridge.
     <li><code>curl http://IP_ADDRESS_OF_HUE/api -d '{"devicetype": "MY_AWESOME_APP"}'</code>
     <li>User name returns like this. <code>[{"success":{"username":"7c-O7MX386ggkS88Opfxrk2RU2jSdMZ1OSSPcSAp"}}]</code>
+  </ol>
   <h3>Create my own virtual buttons</h3>
   <ul>
     <li> The endopoint for the group of light is <code>http://192.168.0.16/api/7c-O7MX386ggkS88Opfxrk2RU2jSdMZ1OSSPcSAp/groups/0/action`</code>
     <li> Method is PUT, value is <code>{"on": true}</code> for turning on lights.
     <li> As PUT is not supported in HTML form Fetch API of JavaScript is used. (See the source code.)
+  </ul>
 </div>
 
 <script type="text/javascript">
