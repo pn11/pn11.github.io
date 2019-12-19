@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#FF9900">
+<meta name="viewport" content="width=device-width">  <!-- For Portable device -->
+<title>Hue Controller</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<!-- <script type="text/javascript" src="menu.js"></script> -->
+</head>
+
+<body>
+
+<div id = "main"> 
+  <h2>Hue Controller For My Home</h2>
+  <p>This works only in my home LAN.
+  <h3>The Bottons</h3>
+  <p>
+    <button style="width:100px;height:100px" onclick="turn_hue(false)">
+      <font size="100"><i class="fas fa-lightbulb"></i></font>
+    </button>
+    <button style="width:100px;height:100px" onclick="turn_hue(true)">
+      <font size="100"><i class="far fa-lightbulb"></i></font>
+    </button>
+   <p>Explanation follows.</p>
+  <h3>How to get the IP address of the bridge</h3>
+  <p><a href="https://discovery.meethue.com">Access here</a>.
+  <h3>How to get the username</h3>
+  <p>The way explained in the official page did not work for me. (<a href=https://developers.meethue.com/develop/get-started-2/>Get Started – Philips Hue Developer Program</a>)
+  <ol>
+    <li>Push the button on the Hue Bridge.
+    <li><code>curl http://IP_ADDRESS_OF_HUE/api -d '{"devicetype": "MY_AWESOME_APP"}'</code>
+    <li>User name returns like this. <code>[{"success":{"username":"7c-O7MX386ggkS88Opfxrk2RU2jSdMZ1OSSPcSAp"}}]</code>
+  <h3>Create my own virtual buttons</h3>
+  <ul>
+    <li> The endopoint for the group of light is <code>http://192.168.0.16/api/7c-O7MX386ggkS88Opfxrk2RU2jSdMZ1OSSPcSAp/groups/0/action`</code>
+    <li> Method is PUT, value is <code>{"on": true}</code> for turning on lights.
+    <li> As PUT is not supported in HTML form Fetch API of JavaScript is used. (See the source code.)
+</div>
+
+<script type="text/javascript">
+  function turn_hue(on_or_off) {
+      fetch(`http://192.168.0.16/api/7c-O7MX386ggkS88Opfxrk2RU2jSdMZ1OSSPcSAp/groups/0/action`,
+            {method: "PUT",
+             body: JSON.stringify({on: on_or_off})
+            })
+          .then(response => {
+              console.log(response.status);
+              if (!response.ok) {
+                  console.error("Error", response);
+              } else {
+                  return response.json().then(res => {
+                      console.log(res);
+                  });
+              }
+          }).catch(error => {
+              console.error(error);
+          });
+  }
+</script>
+</body>
+</html>
+
+
