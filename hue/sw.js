@@ -5,6 +5,7 @@ self.addEventListener('install', function(e) {
           '/hue/',
           '/hue/index.html',
           '/hue/index.js',
+          '/hue/pwa-button.css',
           '/style.css'
         ]);
       })
