@@ -1,0 +1,15 @@
+{
+  "background_color": "orange",
+  "description": "Hue App",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "icon/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "Hue App",
+  "short_name": "Hue",
+  "start_url": "/hue/index.html"
+}
